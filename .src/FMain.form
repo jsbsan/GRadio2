@@ -1,0 +1,2043 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  Move(0,35,2037,651)
+  #Scaled = False
+  Expand = True
+  Text = ("G-Radio v-2.0 Beta!!")
+  Icon = Picture["gradio.png"]
+  Arrangement = Arrange.Vertical
+  Margin = True
+  Padding = 2
+  { btnStart Button
+    Move(1183,-14,30,40)
+    Visible = False
+    Tracking = True
+    Picture = Picture["icon:/16/play"]
+    Border = False
+    Default = True
+  }
+  { Panel4 Panel
+    Move(0,0,1092,56)
+    { reloj Label
+      Move(511,0,91,56)
+      Font = Font["Ume Gothic S5,Bold,+1"]
+      Background = &H000000&
+      Foreground = &HDFDFDF&
+      ToolTip = ("Hora del sistema")
+      Expand = True
+      Alignment = Align.Center
+      Border = Border.Raised
+    }
+    { LabelA6 Label
+      Move(595,21,77,35)
+      Font = Font["Arial,Bold,+1"]
+      Background = &H000000&
+      Foreground = &HDFDFDF&
+      ToolTip = ("Acumulado de comerciales en esta hora")
+      Expand = True
+      Alignment = Align.Top
+      Border = Border.Raised
+    }
+    { LabelA7 Label
+      Move(672,21,77,35)
+      Font = Font["Arial,Bold,+1"]
+      Background = &H000000&
+      Foreground = &HDFDFDF&
+      ToolTip = ("Acumulado Intercultural este día")
+      Expand = True
+      Alignment = Align.Top
+      Border = Border.Raised
+    }
+    { LabelA8 Label
+      Move(749,21,77,35)
+      Font = Font["Arial,Bold,+1"]
+      Background = &H000000&
+      Foreground = &HDFDFDF&
+      ToolTip = ("Relación temas nacionales")
+      Expand = True
+      Alignment = Align.Top
+      Border = Border.Raised
+    }
+    { DrawingArea1 DrawingArea
+      Move(420,0,91,56)
+      Background = &H00BF00&
+      Border = Border.Raised
+      { Label6 Label
+        Move(14,35,70,14)
+        Font = Font["-1"]
+        Foreground = Color.SelectedForeground
+        Text = ("Remanente")
+      }
+    }
+    { PictureBox1 PictureBox
+      Move(833,0,56,56)
+      Picture = Picture["gradio.png"]
+    }
+    { TextLabel3 TextLabel
+      Move(903,10,56,21)
+      Font = Font["Bold"]
+      Foreground = &H000000&
+      Text = ("G Radio")
+    }
+    { LabelCancion Label
+      Move(91,0,329,24)
+      Font = Font["Bold"]
+      Background = &H00FF00&
+      Foreground = &HFF0000&
+      Expand = True
+      Alignment = Align.TopLeft
+    }
+    { LabelComercial Label
+      Move(91,25,329,28)
+      Font = Font["Bold"]
+      Background = &HFF7F00&
+      Foreground = &HFFFBFB&
+      Alignment = Align.TopLeft
+    }
+    { TextLabel1 TextLabel
+      Move(0,0,91,24)
+      Font = Font["Bold,-1"]
+      Background = &H00DF00&
+      Foreground = &HFF0000&
+      Text = ("Reproduciendo:")
+      Alignment = Align.TopLeft
+    }
+    { TextLabel2 TextLabel
+      Move(0,25,91,28)
+      Font = Font["Bold,-1"]
+      Background = &HDF6B00&
+      Foreground = &HFFFFFF&
+      Text = ("        Comercial:")
+      Alignment = Align.TopLeft
+    }
+    { LabelCancion7 Label
+      Move(422,14,84,21)
+      Font = Font["Ume Mincho S3,Bold,+1"]
+      Background = &H00BF00&
+      Foreground = &HFF1F1F&
+      ToolTip = ("Tiempo para terminar")
+      Expand = True
+      Text = ("tiempo")
+      Alignment = Align.TopLeft
+    }
+    { Label5 Label
+      Move(539,35,42,21)
+      Font = Font["-1"]
+      Foreground = Color.SelectedForeground
+      Text = ("Hora")
+    }
+    { Label7 Label
+      Move(601,35,70,14)
+      Font = Font["-1"]
+      Foreground = Color.SelectedForeground
+      ToolTip = ("Acumulado de comerciales en esta hora")
+      Text = ("Comerciales")
+    }
+    { Label8 Label
+      Move(679,35,70,21)
+      Font = Font["-1"]
+      Foreground = Color.SelectedForeground
+      ToolTip = ("Acumulado Intercultural este día")
+      Text = ("Intercultural")
+    }
+    { Label9 Label
+      Move(763,35,56,14)
+      Font = Font["-1"]
+      Foreground = Color.SelectedForeground
+      ToolTip = ("Relación temas nacionales")
+      Text = ("Nacional")
+    }
+    { Label10 Label
+      Move(595,0,231,21)
+      Font = Font["-1"]
+      Background = Color.Foreground
+      Foreground = Color.TextBackground
+      Text = ("INDICADORES")
+      Alignment = Align.TopLeft
+      Border = Border.Raised
+    }
+    { Label3 Label
+      Move(882,35,170,20)
+      Font = Font["Bold,-1"]
+      Foreground = &H7F7F7F&
+      ToolTip = ("Visita la página web")
+      Text = ("http://www.g-radio.org")
+    }
+    { PictureBox2 PictureBox
+      Move(973,0,35,35)
+      ToolTip = ("TUX el pinguino!")
+      Picture = Picture["icon:/32/linux"]
+    }
+    { LabelA5 Label
+      Move(735,0,84,14)
+      Foreground = Color.SelectedForeground
+      ToolTip = ("Fecha de Hoy")
+    }
+    { VBoxSeccion2 VBox
+      Move(1050,-28,28,84)
+      Visible = False
+      { drwVol DrawingArea
+        Move(0,0,21,77)
+        ToolTip = ("VU-meter gracias a Ingo Beckert")
+        Expand = True
+      }
+    }
+  }
+  { HSplit1 HSplit
+    Move(0,63,1778,588)
+    Expand = True
+    { VBoxSeccion1 VBox
+      Move(21,7,329,567)
+      { !FileChooser1 FileChooser
+        Move(35,0,273,392)
+        #Public = True
+        Font = Font["-3"]
+        Expand = True
+        ShowDirectory = True
+        ShowDetailed = True
+        ShowBookmark = False
+        ReadOnly = True
+      }
+      { Panel8 Panel
+        Move(7,455,266,91)
+        Arrangement = Arrange.Row
+        Border = Border.Raised
+        { HBox2 HBox
+          Move(7,0,224,28)
+          Expand = True
+          { Hora Button
+            Move(0,0,91,28)
+            Font = Font["-2"]
+            Foreground = &H000000&
+            ToolTip = ("Reproducir Hora")
+            Expand = True
+            Picture = Picture["clock16.png"]
+          }
+          { Button37 Button
+            Move(91,0,91,28)
+            Foreground = &H000000&
+            ToolTip = ("Programar Cadena de Internet")
+            Expand = True
+            Picture = Picture["contactbook16.png"]
+          }
+        }
+        { HBox1 HBox
+          Move(7,28,217,28)
+          Expand = True
+          { Button38 Button
+            Move(0,0,91,28)
+            Font = Font["-4"]
+            Foreground = &H000000&
+            ToolTip = ("Mostrar los audios emitidos")
+            Expand = True
+            Picture = Picture["risegraph16.png"]
+          }
+          { Button4 Button
+            Move(91,0,91,28)
+            Foreground = &H000000&
+            ToolTip = ("Configurar Guarango Radio")
+            Expand = True
+            Picture = Picture["spanner16.png"]
+          }
+        }
+        { HBox3 HBox
+          Move(7,56,245,28)
+          Expand = True
+          { ButtonAudacious Button
+            Move(0,0,84,28)
+            Expand = True
+            AutoResize = True
+            Text = ("Audacious")
+            Picture = Picture["audacious.png"]
+          }
+          { ButtonPAVUMETER Button
+            Move(91,0,56,28)
+            ToolTip = ("V meter")
+            Expand = True
+            Text = ("Vmeter")
+            Picture = Picture["barras.png"]
+          }
+          { !ToggleButton1 ToggleButton
+            Move(147,0,91,28)
+            #Public = True
+            Font = Font["Bold,+2"]
+            Background = &HDF0000&
+            ToolTip = ("Definir el modo de operación")
+            Expand = True
+            AutoResize = True
+            Text = ("Auto")
+            Value = True
+          }
+        }
+      }
+    }
+    { VBox1 VBox
+      Move(378,7,336,574)
+      { Panel1 Panel
+        Move(-56,14,532,434)
+        Expand = True
+        Arrangement = Arrange.Vertical
+        Border = Border.Raised
+        { Label1 Label
+          Move(7,0,434,28)
+          Font = Font["Bold"]
+          Foreground = Color.SelectedBackground
+          Expand = True
+          Text = ("Temas Musicales")
+        }
+        { LabelCancion2 Label
+          Move(14,28,595,31)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion3 Label
+          Move(10,50,595,31)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion4 Label
+          Move(7,70,595,31)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion5 Label
+          Move(10,100,595,31)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion6 Label
+          Move(10,130,595,31)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion8 Label
+          Move(10,160,600,20)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion9 Label
+          Move(14,182,600,20)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion10 Label
+          Move(14,203,600,20)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion11 Label
+          Move(10,220,600,20)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion12 Label
+          Move(10,240,600,20)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion13 Label
+          Move(10,260,600,20)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion14 Label
+          Move(0,273,600,20)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion15 Label
+          Move(14,301,600,20)
+          Font = Font["Bold,-2"]
+          Background = &H00FF7F&
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { LabelCancion16 Label
+          Move(14,336,600,20)
+          Font = Font["Bold,-2"]
+          Background = Color.Background
+          Foreground = &HFF0000&
+          ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+          Drop = True
+          Expand = True
+        }
+        { HSplit5 HBox
+          Move(14,392,420,28)
+          { Button7 Button
+            Move(0,0,126,28)
+            Font = Font["-1"]
+            Foreground = &H000000&
+            ToolTip = ("Recargar la lista")
+            Expand = True
+            Text = ("Recargar Lista")
+            Picture = Picture["icon:/16/important"]
+          }
+          { Button23 Button
+            Move(133,0,98,28)
+            Font = Font["-1"]
+            Background = Color.ButtonBackground
+            Foreground = Color.ButtonForeground
+            ToolTip = ("Borrar el último tema")
+            Expand = True
+            Text = ("Borra último")
+          }
+          { Button35 Button
+            Move(231,0,98,28)
+            Font = Font["-1"]
+            ToolTip = ("Rotar los temas")
+            Expand = True
+            Text = ("Rotar")
+          }
+        }
+      }
+      { Panel3 HBox
+        Move(-14,490,406,84)
+        AutoResize = True
+        { VBox14 VBox
+          Move(0,7,63,112)
+          Expand = True
+          { Button17 Button
+            Move(0,0,84,56)
+            Background = Color.White
+            Foreground = &HFFFFFF&
+            Tag = "Reproducir"
+            ToolTip = ("Reproducir Parrilla")
+            Expand = True
+            Picture = Picture["icon:/16/play"]
+          }
+          { Button24 Button
+            Move(0,56,84,56)
+            Foreground = &H000000&
+            ToolTip = ("Programar la parrilla musical")
+            Expand = True
+            Picture = Picture["melody16.png"]
+          }
+        }
+        { Panel2 Panel
+          Move(63,7,140,112)
+          { Button3 Button
+            Move(1,57,140,56)
+            ToolTip = ("Baja el volumen para Locutar ")
+            Picture = Picture["wand32.png"]
+          }
+          { Button18 Button
+            Move(0,0,70,56)
+            Foreground = &H000000&
+            ToolTip = ("Reiniciar tema")
+            Picture = Picture["icon:/32/start"]
+          }
+          { Button19 Button
+            Move(70,0,70,56)
+            Foreground = &H000000&
+            Tracking = True
+            ToolTip = ("Siguiente tema")
+            Picture = Picture["icon:/32/forward"]
+          }
+          { Label141 Label
+            Move(77,84,56,21)
+            Font = Font["-1"]
+            Foreground = &H005F00&
+            Alignment = Align.TopRight
+          }
+        }
+        { VBox15 VBox
+          Move(210,7,168,112)
+          Expand = True
+          { HBox4 HBox
+            Move(0,0,161,42)
+            Expand = True
+            { Button20 Button
+              Move(7,7,63,56)
+              Foreground = &H000000&
+              ToolTip = ("Detenter al finalizar tema")
+              Expand = True
+              Picture = Picture["icon:/16/bottom"]
+            }
+            { Button21 Button
+              Move(62,1,70,56)
+              Foreground = &H000000&
+              ToolTip = ("Detener ahora!")
+              Expand = True
+              Picture = Picture["icon:/16/stop"]
+            }
+          }
+          { Button25 Button
+            Move(7,49,133,56)
+            Foreground = &H000000&
+            ToolTip = ("Muestra la parrilla")
+            Expand = True
+            Picture = Picture["search16.png"]
+          }
+        }
+      }
+    }
+    { VBox2 VBox
+      Move(742,-42,553,637)
+      { VBox20 VBox
+        Move(-42,0,504,406)
+        Expand = True
+        { TabStrip2 TabStrip
+          Move(63,35,476,406)
+          Font = Font["Bold"]
+          Foreground = Color.SelectedBackground
+          Expand = True
+          Arrangement = Arrange.Horizontal
+          Count = 2
+          TextFont = Font["Bold"]
+          Index = 0
+          Text = ("Comerciales")
+          { VBox3 VBox
+            Move(91,28,350,350)
+            Expand = True
+            { ListBoxComerciales ListBox
+              Move(7,0,336,322)
+              Font = Font["Bold,-2"]
+              Background = &HBFFFCF&
+              Foreground = &H17BF17&
+              ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+              Drop = True
+              Expand = True
+              Border = False
+              ScrollBar = Scroll.None
+            }
+            { HSplit2 HBox
+              Move(14,280,330,40)
+              AutoResize = True
+              { Button1 Button
+                Move(7,7,119,28)
+                Font = Font["-3"]
+                ToolTip = ("Borrar los comerciales en cola")
+                Expand = True
+                Text = ("Vaciar Comerciales")
+                Picture = Picture["icon:/16/important"]
+              }
+              { Button5 Button
+                Move(140,7,77,28)
+                Font = Font["-2"]
+                ToolTip = ("Borrar el último comercial")
+                Expand = True
+                Text = ("Borra último")
+              }
+              { Button22 Button
+                Move(217,7,49,28)
+                Font = Font["-2"]
+                ToolTip = ("Rotar los comerciales")
+                Expand = True
+                AutoResize = True
+                Text = ("Rotar")
+              }
+            }
+          }
+          Index = 1
+          Text = ("Pautaje")
+          { Panel5 Panel
+            Move(14,21,322,315)
+            { ListBoxPautaje ListBox
+              Move(21,42,329,280)
+              Font = Font["Bold,-2"]
+              Background = &HFFFFFF&
+              Foreground = &H00007F&
+              ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+              Drop = True
+              Expand = True
+              Border = False
+              ScrollBar = Scroll.Both
+            }
+            { HBox8 HBox
+              Move(21,7,294,28)
+              { ButtonPautaje Button
+                Move(0,0,160,20)
+                ToolTip = ("Actualice el pautaje haciendo click aquí")
+                Expand = True
+                Text = ("Actualizar Pautaje")
+              }
+            }
+          }
+          Index = 0
+        }
+      }
+      { Panel6 HBox
+        Move(7,455,560,112)
+        { VBox16 VBox
+          Move(0,14,112,105)
+          Expand = True
+          { Button26 Button
+            Move(7,-7,105,56)
+            ToolTip = ("Reproducir comerciales")
+            Expand = True
+            Picture = Picture["player_play16.png"]
+          }
+          { Button31 Button
+            Move(7,49,105,56)
+            Foreground = &H000000&
+            ToolTip = ("Programar comerciales")
+            Expand = True
+            Picture = Picture["moneyreceipt16.png"]
+          }
+        }
+        { VBox17 VBox
+          Move(147,0,133,112)
+          Expand = True
+          { HBox5 HBox
+            Move(0,0,126,77)
+            Expand = True
+            { Button27 Button
+              Move(7,7,48,56)
+              ToolTip = ("Siguiente")
+              Expand = True
+              AutoResize = True
+              Picture = Picture["player_fwd16.png"]
+            }
+            { Button28 Button
+              Move(63,7,48,56)
+              ToolTip = ("Detener después del comercial")
+              Expand = True
+              AutoResize = True
+              Picture = Picture["icon:/16/bottom"]
+            }
+          }
+          { Button34 Button
+            Move(7,63,96,56)
+            Foreground = &H000000&
+            ToolTip = ("Muestra  el pautaje")
+            Expand = True
+            AutoResize = True
+            Picture = Picture["search16.png"]
+          }
+        }
+        { VBox18 VBox
+          Move(294,14,91,105)
+          Expand = True
+          { HBox6 HBox
+            Move(14,14,77,35)
+            Expand = True
+            { Button29 Button
+              Move(7,7,40,56)
+              Font = Font["-1"]
+              Foreground = &H000000&
+              ToolTip = ("Insertar un comercial")
+              Expand = True
+              AutoResize = True
+              Picture = Picture["plus16.png"]
+            }
+            { Button32 Button
+              Move(42,7,40,56)
+              Foreground = &H000000&
+              ToolTip = ("Borrar comerciales")
+              Expand = True
+              AutoResize = True
+              Picture = Picture["minus16.png"]
+            }
+          }
+          { Button33 Button
+            Move(0,70,80,56)
+            Foreground = &H000000&
+            ToolTip = ("Borrar comerciales caducados")
+            Expand = True
+            AutoResize = True
+            Picture = Picture["paperminus16.png"]
+          }
+        }
+        { VBox19 VBox
+          Move(392,14,154,91)
+          Expand = True
+          { Button8 Button
+            Move(0,0,112,56)
+            Foreground = &H000000&
+            ToolTip = ("Grabar audio (Configure la Entrada)")
+            Expand = True
+            Picture = Picture["icon:/16/record"]
+          }
+          { HBox7 HBox
+            Move(21,70,133,21)
+            Expand = True
+            { Button30 Button
+              Move(0,-21,56,56)
+              Font = Font["-1"]
+              Foreground = &H000000&
+              ToolTip = ("Programar  evento a hora exacta")
+              Expand = True
+              Picture = Picture["icon:/32/media-player"]
+            }
+            { Button6 Button
+              Move(56,-14,56,56)
+              Font = Font["-1"]
+              Foreground = &H5F5F5F&
+              ToolTip = ("Programar  evento con espera")
+              Expand = True
+              Picture = Picture["icon:/32/media-player"]
+            }
+          }
+        }
+      }
+    }
+    { TabStrip1 TabStrip
+      Move(1190,28,539,588)
+      ToolTip = ("Arrastrar un efecto para cargar")
+      Arrangement = Arrange.Fill
+      AutoResize = True
+      Count = 11
+      TextFont = Font["Bold,-1"]
+      Index = 0
+      Text = ("Efectos 1")
+      { HPanel1 HPanel
+        Move(14,14,441,539)
+        Background = &HBF4747&
+        Expand = True
+        Spacing = True
+        Padding = 2
+        { Label11 Label
+          Move(-7,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label12 Label
+          Move(21,14,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label13 Label
+          Move(77,35,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label14 Label
+          Move(126,63,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label15 Label
+          Move(154,91,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label16 Label
+          Move(203,112,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label17 Label
+          Move(21,182,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label18 Label
+          Move(77,210,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label19 Label
+          Move(133,238,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label20 Label
+          Move(189,259,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label21 Label
+          Move(245,287,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label22 Label
+          Move(336,322,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 1
+      Text = ("Efectos 2")
+      { VBox4 HPanel
+        Move(-35,14,623,469)
+        Background = &HBF47A1&
+        Spacing = True
+        Padding = 2
+        { Label23 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label27 Label
+          Move(63,35,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label31 Label
+          Move(112,63,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label24 Label
+          Move(154,105,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label28 Label
+          Move(203,140,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label32 Label
+          Move(238,168,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label26 Label
+          Move(35,273,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label30 Label
+          Move(98,294,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label34 Label
+          Move(133,322,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label25 Label
+          Move(175,336,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label29 Label
+          Move(210,357,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label33 Label
+          Move(252,378,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 2
+      Text = ("Efectos 3")
+      { VBox5 HPanel
+        Move(-63,42,581,448)
+        Background = &H4747BF&
+        Spacing = True
+        Padding = 2
+        { Label35 Label
+          Move(70,7,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label36 Label
+          Move(112,28,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label37 Label
+          Move(175,56,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label38 Label
+          Move(252,77,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label39 Label
+          Move(301,105,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label40 Label
+          Move(329,126,100,100)
+          Font = Font["-2"]
+          Background = Color.Black
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label41 Label
+          Move(70,182,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label42 Label
+          Move(98,217,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label43 Label
+          Move(189,238,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label44 Label
+          Move(224,259,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label45 Label
+          Move(308,329,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label46 Label
+          Move(350,378,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 3
+      Text = ("Efectos 4")
+      { VBox6 HPanel
+        Move(-49,21,560,483)
+        Background = &H4783BF&
+        Spacing = True
+        Padding = 2
+        { Label47 Label
+          Move(63,7,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label48 Label
+          Move(133,28,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label49 Label
+          Move(182,49,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label50 Label
+          Move(259,77,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label51 Label
+          Move(322,105,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label52 Label
+          Move(14,175,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label53 Label
+          Move(77,203,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label54 Label
+          Move(147,231,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label55 Label
+          Move(189,259,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label56 Label
+          Move(231,287,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label57 Label
+          Move(294,315,100,100)
+          Font = Font["-1"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label58 Label
+          Move(371,350,100,100)
+          Font = Font["-1"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 4
+      Text = ("Efectos 5")
+      { VBox7 HPanel
+        Move(-7,28,532,532)
+        Background = &H47BFBF&
+        Spacing = True
+        Padding = 2
+        { Label59 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label60 Label
+          Move(56,14,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label61 Label
+          Move(84,28,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label62 Label
+          Move(133,42,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label63 Label
+          Move(189,63,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label64 Label
+          Move(245,77,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label65 Label
+          Move(-7,154,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label66 Label
+          Move(56,182,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label67 Label
+          Move(119,217,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label68 Label
+          Move(154,259,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label69 Label
+          Move(196,294,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label70 Label
+          Move(273,329,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 5
+      Text = ("Efectos 6")
+      { VBox8 HPanel
+        Move(-28,0,581,511)
+        Background = &H47BF83&
+        Spacing = True
+        Padding = 2
+        { Label71 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label72 Label
+          Move(0,21,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label73 Label
+          Move(42,42,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label74 Label
+          Move(77,63,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label75 Label
+          Move(126,105,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label76 Label
+          Move(182,133,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label77 Label
+          Move(238,168,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label78 Label
+          Move(315,196,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label79 Label
+          Move(406,245,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label80 Label
+          Move(35,308,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label81 Label
+          Move(189,336,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label82 Label
+          Move(217,357,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 6
+      Text = ("Efectos 7")
+      { VBox9 HPanel
+        Move(14,14,504,455)
+        Background = &H47BF47&
+        Spacing = True
+        Padding = 2
+        { Label83 Label
+          Move(7,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label84 Label
+          Move(7,21,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label85 Label
+          Move(0,56,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label86 Label
+          Move(14,98,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label87 Label
+          Move(77,133,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label88 Label
+          Move(140,161,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label89 Label
+          Move(161,189,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label90 Label
+          Move(203,224,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label91 Label
+          Move(119,252,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label92 Label
+          Move(175,294,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label93 Label
+          Move(245,322,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label94 Label
+          Move(294,343,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 7
+      Text = ("Efectos 8")
+      { VBox10 HPanel
+        Move(42,0,427,462)
+        Background = &H83BF47&
+        Spacing = True
+        Padding = 2
+        { Label95 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label96 Label
+          Move(0,21,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label97 Label
+          Move(28,42,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label98 Label
+          Move(49,63,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label99 Label
+          Move(133,91,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label100 Label
+          Move(161,119,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label101 Label
+          Move(231,147,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label102 Label
+          Move(126,203,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label103 Label
+          Move(126,294,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label104 Label
+          Move(84,329,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label105 Label
+          Move(140,357,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label106 Label
+          Move(189,371,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 8
+      Text = ("Efectos 9")
+      { VBox11 HPanel
+        Move(-35,35,581,476)
+        Background = &HA1BF47&
+        Spacing = True
+        Padding = 2
+        { Label107 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label108 Label
+          Move(0,21,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label109 Label
+          Move(28,49,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label110 Label
+          Move(28,77,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label111 Label
+          Move(77,105,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label112 Label
+          Move(126,126,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label113 Label
+          Move(168,154,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label114 Label
+          Move(210,175,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label115 Label
+          Move(273,203,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label116 Label
+          Move(308,231,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label117 Label
+          Move(357,259,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label118 Label
+          Move(413,301,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Padding = 2
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 9
+      Text = ("Efectos 10")
+      { VBox12 HPanel
+        Move(7,28,511,497)
+        Background = &HBFA147&
+        Spacing = True
+        Padding = 2
+        { Label119 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label120 Label
+          Move(0,21,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label121 Label
+          Move(42,49,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label122 Label
+          Move(77,84,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label123 Label
+          Move(112,112,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label124 Label
+          Move(133,140,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label125 Label
+          Move(196,161,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label126 Label
+          Move(252,189,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label127 Label
+          Move(315,224,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label128 Label
+          Move(350,259,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label129 Label
+          Move(371,287,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label130 Label
+          Move(413,315,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 10
+      Text = ("Efectos 11")
+      { VBox13 HPanel
+        Move(-7,35,553,518)
+        Background = &HBF6547&
+        Spacing = True
+        Padding = 2
+        { Label131 Label
+          Move(0,0,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label132 Label
+          Move(7,28,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label133 Label
+          Move(56,63,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label134 Label
+          Move(98,91,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label135 Label
+          Move(161,126,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label136 Label
+          Move(210,154,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label137 Label
+          Move(238,175,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label138 Label
+          Move(287,196,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label139 Label
+          Move(350,238,100,100)
+          Font = Font["-2"]
+          Background = &H53677F&
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+        { Label140 Label
+          Move(399,266,100,100)
+          Font = Font["-2"]
+          Background = Color.Foreground
+          Foreground = Color.TextBackground
+          ToolTip = ("Arrastrar un efecto para cargar")
+          Drop = True
+          Alignment = Align.Center
+          Border = Border.Plain
+        }
+      }
+      Index = 0
+    }
+  }
+  { TimerActualizar #Timer
+    #Move(189,630)
+  }
+}

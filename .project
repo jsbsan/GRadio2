@@ -1,0 +1,13 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.9.2
+Title=G Radio V-2.1 Agua Beta!!
+Startup=FMain
+Icon=wand32.png
+Version=0.0.68
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+TabSize=2
+Translate=1
+Language=es
+Packager=1
