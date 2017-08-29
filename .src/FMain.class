@@ -2004,37 +2004,37 @@ End
 
 Public Sub Button9_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 3' -e ~/.gradio/data/panel/efecto3.sh"
+  Shell "audacious --play"
 
 End
 
 Public Sub Button10_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 4' -e ~/.gradio/data/panel/efecto4.sh"
+  Shell "audacious --rew"
 
 End
 
 Public Sub Button11_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 5' -e ~/.gradio/data/panel/efecto5.sh"
+  Shell "audacious --stop"
 
 End
 
 Public Sub Button12_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 6' -e ~/.gradio/data/panel/efecto6.sh"
+  Shell "audacious --fwd"
 
 End
 
 Public Sub Button13_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 7' -e ~/.gradio/data/panel/efecto7.sh"
+  Shell "audacious --show-jump-box"
 
 End
 
 Public Sub Button14_Click()
 
-  Shell "xterm -geometry 80x3 -title 'EFECTO 8' -e ~/.gradio/data/panel/efecto8.sh"
+  Shell "audacious --enqueue"
 
 End
 
@@ -2123,6 +2123,7 @@ Public Sub Button17_Click()
   Wait 0.01
 
   Shell "~/.gradio/bin/inicio.sh"
+  Shell "audacious --stop"
 
 End
 
@@ -2207,6 +2208,7 @@ End
 Public Sub Button26_Click()
 
   Shell "~/.gradio/bin/iniciocomercial.sh"
+  Shell "audacious --stop"
 
 End
 
@@ -2330,18 +2332,29 @@ Public Sub Button1_Click()
 
 End
 
-Public Sub ButtonAudacious_Click()
+Public Sub ToggleButton2_Click()
 
-  Shell "audacious"
-
-  'Shell "~/.gradio/bin/vaciareventos.sh"
+  If ToggleButton2.Value = True Then
+    ToggleButton2.Background =
+    ToggleButton2.Foreground = Color.Black
+    ToggleButton2.Text = "Aux on"
+    Shell "audacious"
+    Shell "bash ~/.gradio/bin/stopafter.sh"
+  
+   Else
+    ToggleButton2.Background = &HFF0000&
+    ToggleButton2.Foreground = Color.Black
+    ToggleButton2.Text = "Aux off"
+    Shell "audacious --stop"
+    Shell "bash ~/.gradio/bin/siguiente.sh"
+  Endif
 
 End
 
 Public Sub ToggleButton1_Click()
 
   If ToggleButton1.Value = True Then
-    ToggleButton1.Background = Color.Green
+    ToggleButton1.Background = &HBB0000&
     ToggleButton1.Foreground = Color.Black
     ToggleButton1.Text = "Auto"
     Shell "bash ~/.gradio/bin/./auto.sh"
@@ -7200,7 +7213,6 @@ Public Sub drwVol_Draw()
   Paint.End
 
 End
-''Vumeter-end
 
 Public Sub TabStrip2_Click()
 
@@ -7349,8 +7361,51 @@ Public Sub TabStrip1_Click()
 
 End
 
-Public Sub ButtonPAVUMETER_Click()
+Public Sub BotonRepPpal_Click()
 
-  Shell "pavumeter"
+  Shell "~/.gradio/bin/siguiente.sh"
+
+End
+
+Public Sub ListBoxComerciales_Click()
+
+
+End
+
+Public Sub VBoxSeccion2_MouseDown()
+
+  
+
+End
+
+Public Sub VBox3_MouseDown()
+
+  
+
+End
+
+
+Public Sub ListBoxPautaje_Click()
+
+  
+
+End
+
+Public Sub ToggleButton3_Click()
+
+  Shell "EscucharMp3"
+  
+
+End
+
+Public Sub VBox8_MouseDown()
+
+  
+
+End
+
+Public Sub Button2_Click()
+
+  Shell "audacious --play-pause"
 
 End

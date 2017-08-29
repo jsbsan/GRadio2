@@ -1,13 +1,22 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.9.2
+# Compiled with Gambas 3.10.0
 Title=G Radio V-2.1 Agua Beta!!
 Startup=FMain
+RedirectStderr=1
 Icon=wand32.png
-Version=0.0.68
+Version=0.0.73
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
 TabSize=2
 Translate=1
 Language=es
+SourcePath=/home/jose/Escritorio
+Maintainer=jose
+Address=jose@jose-Latitude-E6410
+License=General Public License
+PackageName=gradio-2-0-mutatis (2)-0.0.73
 Packager=1
+Systems=debian
+Menus=debian:"Applications/Amateur Radio"
+Groups=debian:"xfce"
