@@ -629,7 +629,7 @@
       }
     }
     { VBox2 VBox
-      Move(742,-42,553,637)
+      Move(735,21,553,637)
       Background = Color.Foreground
       { VBox20 VBox
         Move(-42,0,504,406)
@@ -647,7 +647,7 @@
           Index = 0
           Text = ("Comerciales")
           { VBox3 VBox
-            Move(70,21,350,357)
+            Move(63,49,350,357)
             Background = Color.Foreground
             Expand = True
             { ListBoxComerciales ListBox
@@ -695,28 +695,35 @@
           }
           Index = 1
           Text = ("Pautaje")
-          { Panel5 Panel
-            Move(14,28,546,700)
+          { Panel5 VBox
+            Move(7,42,322,308)
             Background = &HAFFF5F&
-            { ListBoxPautaje ListBox
-              Move(0,42,686,693)
-              Font = Font["Bold,-2"]
-              Background = &HAFFF5F&
-              Foreground = &H00007F&
-              ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
-              Drop = True
-              Expand = True
-              Border = False
-              ScrollBar = Scroll.Both
-            }
+            Expand = True
             { HBox8 HBox
-              Move(7,7,294,35)
+              Move(21,14,294,35)
+              AutoResize = True
               { ButtonPautaje Button
                 Move(7,7,133,21)
                 Background = &HFFFF3F&
                 ToolTip = ("Actualice el pautaje haciendo click aquí")
                 Expand = True
                 Text = ("Actualizar Pautaje")
+              }
+            }
+            { Panel9 Panel
+              Move(35,91,273,112)
+              Expand = True
+              Arrangement = Arrange.Fill
+              AutoResize = True
+              { ListBoxPautaje ListBox
+                Move(14,28,252,42)
+                Font = Font["Bold,-2"]
+                Background = &HAFFF5F&
+                Foreground = &H00007F&
+                ToolTip = ("Arrastre y suelte un archivo de audio, o cárguelo con doble click")
+                Drop = True
+                Expand = True
+                ScrollBar = Scroll.Both
               }
             }
           }

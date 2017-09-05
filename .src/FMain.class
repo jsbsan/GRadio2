@@ -2336,12 +2336,12 @@ Public Sub ToggleButton2_Click()
 
   If ToggleButton2.Value = True Then
     ToggleButton2.Background =
-    ToggleButton2.Foreground = Color.Black
+      ToggleButton2.Foreground = Color.Black
     ToggleButton2.Text = "Aux on"
     Shell "audacious"
     Shell "bash ~/.gradio/bin/stopafter.sh"
-  
-   Else
+
+  Else
     ToggleButton2.Background = &HFF0000&
     ToggleButton2.Foreground = Color.Black
     ToggleButton2.Text = "Aux off"
@@ -7369,43 +7369,39 @@ End
 
 Public Sub ListBoxComerciales_Click()
 
-
 End
 
 Public Sub VBoxSeccion2_MouseDown()
-
-  
 
 End
 
 Public Sub VBox3_MouseDown()
 
-  
-
 End
 
-
 Public Sub ListBoxPautaje_Click()
-
-  
 
 End
 
 Public Sub ToggleButton3_Click()
 
   Shell "EscucharMp3"
-  
 
 End
 
 Public Sub VBox8_MouseDown()
-
-  
 
 End
 
 Public Sub Button2_Click()
 
   Shell "audacious --play-pause"
+
+End
+
+Public Sub Form_Show()
+  'se maximiza al mostrarse el formulario
+
+  Me.Maximized = True
 
 End
