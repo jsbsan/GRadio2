@@ -20,7 +20,7 @@
     Default = True
   }
   { Panel4 Panel
-    Move(0,0,1309,56)
+    Move(-14,0,1309,56)
     Background = Color.Background
     Border = Border.Raised
     { reloj Label
@@ -75,7 +75,7 @@
       }
     }
     { PictureBox1 PictureBox
-      Move(1183,0,56,56)
+      Move(1176,0,56,56)
       Picture = Picture["gradio.png"]
     }
     { TextLabel3 TextLabel
@@ -182,15 +182,6 @@
       Foreground = Color.SelectedForeground
       ToolTip = ("Fecha de Hoy")
     }
-    { VBoxSeccion2 VBox
-      Move(1050,-28,28,84)
-      Visible = False
-      { drwVol DrawingArea
-        Move(-147,7,21,77)
-        ToolTip = ("VU-meter gracias a Ingo Beckert")
-        Expand = True
-      }
-    }
   }
   { HSplit1 HSplit
     Move(0,63,1778,588)
@@ -199,16 +190,30 @@
     { VBoxSeccion1 VBox
       Move(21,7,329,567)
       Background = Color.Foreground
-      { !FileChooser1 FileChooser
-        Move(35,0,273,392)
-        #Public = True
-        Font = Font["-3"]
-        Background = Color.Foreground
+      { HBox9 HBox
+        Move(21,28,294,329)
         Expand = True
-        ShowDirectory = True
-        ShowDetailed = True
-        ShowBookmark = False
-        ReadOnly = True
+        { VBoxSeccion2 VBox
+          Move(7,21,21,273)
+          Background = &HFF7F00&
+          { drwVol DrawingArea
+            Move(-147,7,21,77)
+            Background = Color.Cyan
+            ToolTip = ("VU-meter gracias a Ingo Beckert")
+            Focus = True
+          }
+        }
+        { !FileChooser1 FileChooser
+          Move(42,14,203,252)
+          #Public = True
+          Font = Font["-3"]
+          Background = Color.Foreground
+          Expand = True
+          ShowDirectory = True
+          ShowDetailed = True
+          ShowBookmark = False
+          ReadOnly = True
+        }
       }
       { Panel7 Panel
         Move(21,378,308,77)
@@ -847,7 +852,7 @@
       }
     }
     { TabStrip1 TabStrip
-      Move(1190,28,539,588)
+      Move(1190,35,539,588)
       Background = Color.Foreground
       Foreground = Color.Blue
       ToolTip = ("Arrastrar un efecto para cargar")
@@ -859,12 +864,13 @@
       Index = 0
       Text = ("Efectos 1")
       { HPanel1 HPanel
-        Move(14,7,441,546)
+        Move(21,28,441,546)
         Background = Color.Foreground
         Expand = True
         Spacing = True
         Padding = 2
-        { Label11 Label
+        { Label11 Label grupoBotones
+          Name = "Label11"
           Move(-7,0,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -874,7 +880,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label12 Label
+        { Label12 Label grupoBotones
+          Name = "Label12"
           Move(21,14,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -884,7 +891,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label13 Label
+        { Label13 Label grupoBotones
+          Name = "Label13"
           Move(77,35,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -894,7 +902,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label14 Label
+        { Label14 Label grupoBotones
+          Name = "Label14"
           Move(126,63,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -904,7 +913,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label15 Label
+        { Label15 Label grupoBotones
+          Name = "Label15"
           Move(154,91,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -914,7 +924,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label16 Label
+        { Label16 Label grupoBotones
+          Name = "Label16"
           Move(203,112,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -924,7 +935,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label17 Label
+        { Label17 Label grupoBotones
+          Name = "Label17"
           Move(21,182,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -934,7 +946,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label18 Label
+        { Label18 Label grupoBotones
+          Name = "Label18"
           Move(77,210,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -944,7 +957,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label19 Label
+        { Label19 Label grupoBotones
+          Name = "Label19"
           Move(133,238,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -954,7 +968,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label20 Label
+        { Label20 Label grupoBotones
+          Name = "Label20"
           Move(189,259,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -964,7 +979,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label21 Label
+        { Label21 Label grupoBotones
+          Name = "Label21"
           Move(245,287,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -974,7 +990,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label22 Label
+        { Label22 Label grupoBotones
+          Name = "Label22"
           Move(336,322,100,100)
           Font = Font["-2"]
           Background = Color.Yellow
@@ -992,8 +1009,9 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label23 Label
-          Move(0,0,100,100)
+        { Label23 Label grupoBotones
+          Name = "Label23"
+          Move(7,7,100,100)
           Font = Font["-2"]
           Background = Color.White
           Foreground = Color.LinkForeground
@@ -1002,7 +1020,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label27 Label
+        { Label27 Label grupoBotones
+          Name = "Label27"
           Move(63,35,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1012,7 +1031,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label31 Label
+        { Label31 Label grupoBotones
+          Name = "Label31"
           Move(112,63,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1022,7 +1042,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label24 Label
+        { Label24 Label grupoBotones
+          Name = "Label24"
           Move(154,105,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1032,7 +1053,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label28 Label
+        { Label28 Label grupoBotones
+          Name = "Label28"
           Move(203,140,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1042,7 +1064,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label32 Label
+        { Label32 Label grupoBotones
+          Name = "Label32"
           Move(238,168,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1052,7 +1075,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label26 Label
+        { Label26 Label grupoBotones
+          Name = "Label26"
           Move(35,273,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1062,7 +1086,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label30 Label
+        { Label30 Label grupoBotones
+          Name = "Label30"
           Move(98,294,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1072,7 +1097,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label34 Label
+        { Label34 Label grupoBotones
+          Name = "Label34"
           Move(133,322,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1082,7 +1108,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label25 Label
+        { Label25 Label grupoBotones
+          Name = "Label25"
           Move(175,336,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1092,7 +1119,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label29 Label
+        { Label29 Label grupoBotones
+          Name = "Label29"
           Move(210,357,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1102,7 +1130,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label33 Label
+        { Label33 Label grupoBotones
+          Name = "Label33"
           Move(252,378,100,100)
           Font = Font["-2"]
           Background = Color.White
@@ -1120,7 +1149,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label35 Label
+        { Label35 Label grupoBotones
+          Name = "Label35"
           Move(70,7,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1129,7 +1159,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label36 Label
+        { Label36 Label grupoBotones
+          Name = "Label36"
           Move(112,28,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1138,7 +1169,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label37 Label
+        { Label37 Label grupoBotones
+          Name = "Label37"
           Move(175,56,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1147,7 +1179,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label38 Label
+        { Label38 Label grupoBotones
+          Name = "Label38"
           Move(252,77,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1156,7 +1189,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label39 Label
+        { Label39 Label grupoBotones
+          Name = "Label39"
           Move(301,105,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1165,7 +1199,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label40 Label
+        { Label40 Label grupoBotones
+          Name = "Label40"
           Move(329,126,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1174,7 +1209,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label41 Label
+        { Label41 Label grupoBotones
+          Name = "Label41"
           Move(70,182,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1183,7 +1219,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label42 Label
+        { Label42 Label grupoBotones
+          Name = "Label42"
           Move(98,217,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1192,7 +1229,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label43 Label
+        { Label43 Label grupoBotones
+          Name = "Label43"
           Move(189,238,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1201,7 +1239,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label44 Label
+        { Label44 Label grupoBotones
+          Name = "Label44"
           Move(224,259,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1210,7 +1249,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label45 Label
+        { Label45 Label grupoBotones
+          Name = "Label45"
           Move(308,329,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1219,7 +1259,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label46 Label
+        { Label46 Label grupoBotones
+          Name = "Label46"
           Move(350,378,100,100)
           Font = Font["-2"]
           Background = Color.VisitedForeground
@@ -1236,7 +1277,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label47 Label
+        { Label47 Label grupoBotones
+          Name = "Label47"
           Move(63,7,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1245,7 +1287,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label48 Label
+        { Label48 Label grupoBotones
+          Name = "Label48"
           Move(133,28,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1254,7 +1297,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label49 Label
+        { Label49 Label grupoBotones
+          Name = "Label49"
           Move(182,49,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1263,7 +1307,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label50 Label
+        { Label50 Label grupoBotones
+          Name = "Label50"
           Move(259,77,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1272,7 +1317,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label51 Label
+        { Label51 Label grupoBotones
+          Name = "Label51"
           Move(322,105,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1281,7 +1327,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label52 Label
+        { Label52 Label grupoBotones
+          Name = "Label52"
           Move(14,175,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1290,7 +1337,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label53 Label
+        { Label53 Label grupoBotones
+          Name = "Label53"
           Move(77,203,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1299,7 +1347,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label54 Label
+        { Label54 Label grupoBotones
+          Name = "Label54"
           Move(147,231,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1308,7 +1357,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label55 Label
+        { Label55 Label grupoBotones
+          Name = "Label55"
           Move(189,259,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1317,7 +1367,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label56 Label
+        { Label56 Label grupoBotones
+          Name = "Label56"
           Move(231,287,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1326,7 +1377,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label57 Label
+        { Label57 Label grupoBotones
+          Name = "Label57"
           Move(294,315,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1335,7 +1387,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label58 Label
+        { Label58 Label grupoBotones
+          Name = "Label58"
           Move(371,350,100,100)
           Font = Font["-1"]
           Background = Color.Pink
@@ -1352,7 +1405,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label59 Label
+        { Label59 Label grupoBotones
+          Name = "Label59"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1361,7 +1415,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label60 Label
+        { Label60 Label grupoBotones
+          Name = "Label60"
           Move(56,14,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1370,7 +1425,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label61 Label
+        { Label61 Label grupoBotones
+          Name = "Label61"
           Move(84,28,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1379,7 +1435,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label62 Label
+        { Label62 Label grupoBotones
+          Name = "Label62"
           Move(133,42,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1388,7 +1445,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label63 Label
+        { Label63 Label grupoBotones
+          Name = "Label63"
           Move(189,63,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1397,7 +1455,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label64 Label
+        { Label64 Label grupoBotones
+          Name = "Label64"
           Move(245,77,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1406,7 +1465,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label65 Label
+        { Label65 Label grupoBotones
+          Name = "Label65"
           Move(-7,154,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1415,7 +1475,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label66 Label
+        { Label66 Label grupoBotones
+          Name = "Label66"
           Move(56,182,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1424,7 +1485,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label67 Label
+        { Label67 Label grupoBotones
+          Name = "Label67"
           Move(119,217,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1433,7 +1495,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label68 Label
+        { Label68 Label grupoBotones
+          Name = "Label68"
           Move(154,259,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1442,7 +1505,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label69 Label
+        { Label69 Label grupoBotones
+          Name = "Label69"
           Move(196,294,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1451,7 +1515,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label70 Label
+        { Label70 Label grupoBotones
+          Name = "Label70"
           Move(273,329,100,100)
           Font = Font["-2"]
           Background = &HFFC71F&
@@ -1468,7 +1533,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label71 Label
+        { Label71 Label grupoBotones
+          Name = "Label71"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1477,7 +1543,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label72 Label
+        { Label72 Label grupoBotones
+          Name = "Label72"
           Move(0,21,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1486,7 +1553,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label73 Label
+        { Label73 Label grupoBotones
+          Name = "Label73"
           Move(42,42,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1495,7 +1563,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label74 Label
+        { Label74 Label grupoBotones
+          Name = "Label74"
           Move(77,63,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1504,7 +1573,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label75 Label
+        { Label75 Label grupoBotones
+          Name = "Label75"
           Move(126,105,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1513,7 +1583,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label76 Label
+        { Label76 Label grupoBotones
+          Name = "Label76"
           Move(182,133,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1522,7 +1593,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label77 Label
+        { Label77 Label grupoBotones
+          Name = "Label77"
           Move(238,168,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1531,7 +1603,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label78 Label
+        { Label78 Label grupoBotones
+          Name = "Label78"
           Move(315,196,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1540,7 +1613,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label79 Label
+        { Label79 Label grupoBotones
+          Name = "Label79"
           Move(406,245,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1549,7 +1623,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label80 Label
+        { Label80 Label grupoBotones
+          Name = "Label80"
           Move(35,308,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1558,7 +1633,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label81 Label
+        { Label81 Label grupoBotones
+          Name = "Label81"
           Move(189,336,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1567,7 +1643,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label82 Label
+        { Label82 Label grupoBotones
+          Name = "Label82"
           Move(217,357,100,100)
           Font = Font["-2"]
           Background = Color.Magenta
@@ -1584,7 +1661,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label83 Label
+        { Label83 Label grupoBotones
+          Name = "Label83"
           Move(7,0,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1593,7 +1671,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label84 Label
+        { Label84 Label grupoBotones
+          Name = "Label84"
           Move(7,21,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1602,7 +1681,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label85 Label
+        { Label85 Label grupoBotones
+          Name = "Label85"
           Move(0,56,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1611,7 +1691,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label86 Label
+        { Label86 Label grupoBotones
+          Name = "Label86"
           Move(14,98,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1620,7 +1701,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label87 Label
+        { Label87 Label grupoBotones
+          Name = "Label87"
           Move(77,133,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1629,7 +1711,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label88 Label
+        { Label88 Label grupoBotones
+          Name = "Label88"
           Move(140,161,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1638,7 +1721,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label89 Label
+        { Label89 Label grupoBotones
+          Name = "Label89"
           Move(161,189,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1647,7 +1731,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label90 Label
+        { Label90 Label grupoBotones
+          Name = "Label90"
           Move(203,224,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1656,7 +1741,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label91 Label
+        { Label91 Label grupoBotones
+          Name = "Label91"
           Move(119,252,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1665,7 +1751,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label92 Label
+        { Label92 Label grupoBotones
+          Name = "Label92"
           Move(175,294,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1674,7 +1761,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label93 Label
+        { Label93 Label grupoBotones
+          Name = "Label93"
           Move(245,322,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1683,7 +1771,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label94 Label
+        { Label94 Label grupoBotones
+          Name = "Label94"
           Move(294,343,100,100)
           Font = Font["-2"]
           Background = Color.LightBackground
@@ -1700,7 +1789,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label95 Label
+        { Label95 Label grupoBotones
+          Name = "Label95"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1709,7 +1799,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label96 Label
+        { Label96 Label grupoBotones
+          Name = "Label96"
           Move(0,21,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1718,7 +1809,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label97 Label
+        { Label97 Label grupoBotones
+          Name = "Label97"
           Move(28,42,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1727,7 +1819,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label98 Label
+        { Label98 Label grupoBotones
+          Name = "Label98"
           Move(49,63,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1736,7 +1829,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label99 Label
+        { Label99 Label grupoBotones
+          Name = "Label99"
           Move(133,91,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1745,7 +1839,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label100 Label
+        { Label100 Label grupoBotones
+          Name = "Label100"
           Move(161,119,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1754,7 +1849,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label101 Label
+        { Label101 Label grupoBotones
+          Name = "Label101"
           Move(231,147,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1763,7 +1859,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label102 Label
+        { Label102 Label grupoBotones
+          Name = "Label102"
           Move(126,203,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1772,7 +1869,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label103 Label
+        { Label103 Label grupoBotones
+          Name = "Label103"
           Move(126,294,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1781,7 +1879,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label104 Label
+        { Label104 Label grupoBotones
+          Name = "Label104"
           Move(84,329,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1790,7 +1889,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label105 Label
+        { Label105 Label grupoBotones
+          Name = "Label105"
           Move(140,357,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1799,7 +1899,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label106 Label
+        { Label106 Label grupoBotones
+          Name = "Label106"
           Move(189,371,100,100)
           Font = Font["-2"]
           Background = Color.Green
@@ -1816,7 +1917,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label107 Label
+        { Label107 Label grupoBotones
+          Name = "Label107"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1826,7 +1928,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label108 Label
+        { Label108 Label grupoBotones
+          Name = "Label108"
           Move(0,21,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1836,7 +1939,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label109 Label
+        { Label109 Label grupoBotones
+          Name = "Label109"
           Move(28,49,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1846,7 +1950,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label110 Label
+        { Label110 Label grupoBotones
+          Name = "Label110"
           Move(28,77,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1856,7 +1961,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label111 Label
+        { Label111 Label grupoBotones
+          Name = "Label111"
           Move(77,105,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1866,7 +1972,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label112 Label
+        { Label112 Label grupoBotones
+          Name = "Label112"
           Move(126,126,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1876,7 +1983,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label113 Label
+        { Label113 Label grupoBotones
+          Name = "Label113"
           Move(168,154,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1886,7 +1994,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label114 Label
+        { Label114 Label grupoBotones
+          Name = "Label114"
           Move(210,175,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1896,7 +2005,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label115 Label
+        { Label115 Label grupoBotones
+          Name = "Label115"
           Move(273,203,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1906,7 +2016,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label116 Label
+        { Label116 Label grupoBotones
+          Name = "Label116"
           Move(308,231,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1916,7 +2027,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label117 Label
+        { Label117 Label grupoBotones
+          Name = "Label117"
           Move(357,259,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
@@ -1926,8 +2038,9 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label118 Label
-          Move(413,301,100,100)
+        { Label118 Label grupoBotones
+          Name = "Label118"
+          Move(420,315,100,100)
           Font = Font["-2"]
           Background = Color.Cyan
           Foreground = Color.LinkForeground
@@ -1944,7 +2057,8 @@
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label119 Label
+        { Label119 Label grupoBotones
+          Name = "Label119"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1953,7 +2067,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label120 Label
+        { Label120 Label grupoBotones
+          Name = "Label120"
           Move(0,21,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1962,7 +2077,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label121 Label
+        { Label121 Label grupoBotones
+          Name = "Label121"
           Move(42,49,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1971,7 +2087,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label122 Label
+        { Label122 Label grupoBotones
+          Name = "Label122"
           Move(77,84,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1980,7 +2097,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label123 Label
+        { Label123 Label grupoBotones
+          Name = "Label123"
           Move(112,112,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1989,7 +2107,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label124 Label
+        { Label124 Label grupoBotones
+          Name = "Label124"
           Move(133,140,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -1998,7 +2117,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label125 Label
+        { Label125 Label grupoBotones
+          Name = "Label125"
           Move(196,161,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2007,7 +2127,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label126 Label
+        { Label126 Label grupoBotones
+          Name = "Label126"
           Move(252,189,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2016,7 +2137,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label127 Label
+        { Label127 Label grupoBotones
+          Name = "Label127"
           Move(315,224,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2025,7 +2147,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label128 Label
+        { Label128 Label grupoBotones
+          Name = "Label128"
           Move(350,259,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2034,7 +2157,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label129 Label
+        { Label129 Label grupoBotones
+          Name = "Label129"
           Move(371,287,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2043,7 +2167,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label130 Label
+        { Label130 Label grupoBotones
+          Name = "Label130"
           Move(413,315,100,100)
           Font = Font["-2"]
           Background = Color.Blue
@@ -2056,11 +2181,12 @@
       Index = 10
       Text = ("Efectos 11")
       { VBox13 HPanel
-        Move(-7,35,553,518)
+        Move(0,21,553,518)
         Background = Color.Foreground
         Spacing = True
         Padding = 2
-        { Label131 Label
+        { Label131 Label grupoBotones
+          Name = "Label131"
           Move(0,0,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2070,7 +2196,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label132 Label
+        { Label132 Label grupoBotones
+          Name = "Label132"
           Move(7,28,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2080,7 +2207,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label133 Label
+        { Label133 Label grupoBotones
+          Name = "Label133"
           Move(56,63,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2090,7 +2218,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label134 Label
+        { Label134 Label grupoBotones
+          Name = "Label134"
           Move(98,91,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2100,7 +2229,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label135 Label
+        { Label135 Label grupoBotones
+          Name = "Label135"
           Move(161,126,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2110,7 +2240,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label136 Label
+        { Label136 Label grupoBotones
+          Name = "Label136"
           Move(210,154,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2120,7 +2251,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label137 Label
+        { Label137 Label grupoBotones
+          Name = "Label137"
           Move(238,175,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2130,7 +2262,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label138 Label
+        { Label138 Label grupoBotones
+          Name = "Label138"
           Move(287,196,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2140,7 +2273,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label139 Label
+        { Label139 Label grupoBotones
+          Name = "Label139"
           Move(350,238,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan
@@ -2150,7 +2284,8 @@
           Alignment = Align.Center
           Border = Border.Raised
         }
-        { Label140 Label
+        { Label140 Label grupoBotones
+          Name = "Label140"
           Move(399,266,100,100)
           Font = Font["-2"]
           Background = Color.DarkCyan

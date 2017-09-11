@@ -55,19 +55,42 @@ Public labelpulsada As Label
 Public Processtmp As Process
 Public colorfondo As Integer
 
-Public Sub cambiarColorArojo()
+Event ColorPulsado(boton As Object)
+Event ColorSinPulsar(boton As Object)
+Public BotonPulsado As Label
 
+Public Sub grupoBotones_MouseDown()
+
+  BotonPulsado = Last
   colorfondo = Last.Background
 
   Last.Background = Color.red
   Last.Refresh()
   Wait 0.01
 
+  Processtmp = Shell "xterm -geometry 80x3 -title EFECTOS -e mplayer -playlist " & botonPulsado.tag
+  '  Processtmp = Exec ["mplayer", "-playlist", botonPulsado.tag]
+
+  While Processtmp.State = Process.Running
+    Wait 0.01
+    PrepareDraw()
+  Wend
+  BotonPulsado.Background = colorfondo
+
+End
+
+Public Sub Processtmp_kill()
+  'ha terminado el proceso...
+
+  Print "  proceso terminado"
+
+End
+
+Public Sub cambiarColorArojo()
+
 End
 
 Public Sub cambiarColorAnterior()
-
-  Last.Background = colorfondo
 
 End
 
@@ -89,6 +112,13 @@ Public Sub Form_Open()
 
   ''Vumeter-end
 
+  With drwVol
+    .Width = 9 / 1022 * Desktop.Width
+    .Height = 602 / 658 * Desktop.Height
+    .X = 1011 / 1022 * Desktop.Width
+    .Y = 56 / 658 * Desktop.Height
+  End With
+
   ' If Not Exist(User.home & "/.gradio/data/tmp/drop") Then
   '   Try Mkdir User.home & "/.gradio"
   '   Try Mkdir User.home & "/.gradio/data"
@@ -96,1336 +126,6 @@ Public Sub Form_Open()
   '   'try Mkdir User.home & "/.gradio/data/tmp/drop"
   '
   ' Endif
-
-  ' With Me
-  '   .Width = Desktop.Width
-  '   .Height = Desktop.Height
-  ' End With
-  '
-  ' With TextLabel1
-  '   .Width = 0.089 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion
-  '   .Width = 329 / 1022 * Desktop.Width
-  '   .X = 98 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   ' .Height = Desktop.Height
-  ' End With
-  '
-  ' With LabelComercial
-  '   .Width = 329 / 1022 * Desktop.Width
-  '   .X = 98 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .Y = 25 / 658 * Desktop.Height
-  '   ' .Height = Desktop.Height
-  ' End With
-  '
-  ' With TextLabel2
-  '   .Width = 0.089 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .Y = 25 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With DrawingArea1
-  '   .Width = 91 / 1022 * Desktop.Width
-  '   .Height = 49 / 658 * Desktop.Height
-  '   .X = 427 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion7
-  '   .Width = 84 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 429 / 1022 * Desktop.Width
-  '   .Y = 14 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label6
-  '   .Width = 70 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 14 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With PictureBox2
-  '   .Width = 35 / 1022 * Desktop.Width
-  '   .Height = 35 / 658 * Desktop.Height
-  '   .X = 973 / 1022 * Desktop.Width
-  '   .Y = 7 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With TextLabel3
-  '   .Width = 56 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 896 / 1022 * Desktop.Width
-  '   .Y = 18 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label3
-  '   .Width = 140 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 889 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With PictureBox1
-  '   .Width = 56 / 1022 * Desktop.Width
-  '   .Height = 56 / 658 * Desktop.Height
-  '   .X = 840 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelA5
-  '   .Width = 84 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 742 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label10
-  '   .Width = 231 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 602 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelA8
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 35 / 658 * Desktop.Height
-  '   .X = 756 / 1022 * Desktop.Width
-  '   .Y = 14 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelA7
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 35 / 658 * Desktop.Height
-  '   .X = 679 / 1022 * Desktop.Width
-  '   .Y = 14 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelA6
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 35 / 658 * Desktop.Height
-  '   .X = 602 / 1022 * Desktop.Width
-  '   .Y = 14 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label7
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 618 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label8
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 695 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label9
-  '   .Width = 77 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 780 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With reloj
-  '   .Width = 84 / 1022 * Desktop.Width
-  '   .Height = 49 / 658 * Desktop.Height
-  '   .X = 518 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With label5
-  '   .Width = 42 / 1022 * Desktop.Width
-  '   .Height = 14 / 658 * Desktop.Height
-  '   .X = 550 / 1022 * Desktop.Width
-  '   .Y = 35 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With TabStrip1
-  '   .Width = 1008 / 1022 * Desktop.Width
-  '   .Height = 77 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 575 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label11
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label12
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label13
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label14
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label15
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label16
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label18
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label19
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label20
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label21
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label22
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label17
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Panel 2
-  ' '
-  ' With Label23
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label27
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label31
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label24
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label28
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label32
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label26
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label30
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label34
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label25
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label29
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label33
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Panel 3
-  ' With Label35
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label39
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label43
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label36
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label44
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label40
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label38
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label42
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label46
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label37
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label41
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label45
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 4
-  ' 'Tupla1
-  ' With Label47
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label51
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label55
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label48
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label52
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label56
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label50
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label49
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label58
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label54
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label53
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label57
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Panel 5
-  ' 'Tupla1
-  ' With Label59
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label63
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label67
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label62
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label66
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label70
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label60
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label64
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label68
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label61
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label65
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label69
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 6
-  ' 'Tupla1
-  ' With Label71
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label75
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label79
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label74
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label78
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label82
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label72
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label76
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label80
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label73
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label77
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label81
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 7
-  ' '   'Tupla1
-  ' With Label83
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label87
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label91
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label86
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label90
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label94
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label84
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label88
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label92
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label85
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label89
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label93
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 8
-  ' '   'Tupla1
-  ' With Label95
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label99
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label103
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label98
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label102
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label106
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label96
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label100
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label104
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label97
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label101
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label105
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 9
-  ' '   'Tupla1
-  ' With Label107
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label111
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label115
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label110
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label114
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label118
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label108
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label112
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label116
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label109
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label113
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label117
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'panel 10
-  ' '   'Tupla1
-  ' With Label119
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label123
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label127
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label122
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label126
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label130
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label120
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label124
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label128
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label121
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label125
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label129
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 837 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  ' '''''''''''''''''''''''''''''''''''''''''''
-  '
-  ' 'panel 11
-  ' '   'Tupla1
-  ' With Label131
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label133
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label135
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label137
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label139
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' 'Segunda tupla
-  '
-  ' With Label132
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 2 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label134
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 169 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label136
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 336 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label138
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 503 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label140
-  '   .Width = 167 / 1022 * Desktop.Width
-  '   .Height = 21 / 658 * Desktop.Height
-  '   .X = 670 / 1022 * Desktop.Width
-  '   .Y = 21 / 658 * Desktop.Height
-  ' End With
-  '
-  ' '''''''''''''''''''''''''''''''''''''''''''
-  '
-  ' With Panel3
-  '   .Width = 406 / 1022 * Desktop.Width
-  '   .Height = 126 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 448 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Panel6
-  '   .Width = 406 / 1022 * Desktop.Width
-  '   .Height = 126 / 658 * Desktop.Height
-  '   .X = 417 / 1022 * Desktop.Width
-  '   .Y = 448 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Panel8
-  '   .Width = 182 / 1022 * Desktop.Width
-  '   .Height = 126 / 658 * Desktop.Height
-  '   .X = 827 / 1022 * Desktop.Width
-  '   .Y = 448 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With VSplit2
-  '   .Width = 707 / 1022 * Desktop.Width
-  '   .Height = 392 / 658 * Desktop.Height
-  '   .X = 301 / 1022 * Desktop.Width
-  '   .Y = 56 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With FileChooser1
-  '   .Width = 294 / 1022 * Desktop.Width
-  '   .Height = 392 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 56 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Panel5
-  '   .Width = 707 / 1022 * Desktop.Width
-  '   .Height = 400 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With HSplit1
-  '   .Width = 707 / 1022 * Desktop.Width
-  '   .Height = 392 / 658 * Desktop.Height
-  '   .X = 0 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With HSplit5
-  '   .Width = 420 / 1022 * Desktop.Width
-  '   .Height = 20 / 658 * Desktop.Height
-  '   .X = 13 / 1022 * Desktop.Width
-  '   .Y = 396 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Panel2
-  '   .Width = 413 / 1022 * Desktop.Width
-  '   .Height = 231 / 658 * Desktop.Height
-  '   .X = 350 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Panel1
-  '   .Width = 413 / 1022 * Desktop.Width
-  '   .Height = 385 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With Label1
-  '   .Width = 434 / 1022 * Desktop.Width
-  '   .Height = 28 / 658 * Desktop.Height
-  '   .X = 28 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion16
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion15
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion14
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion13
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion12
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 24 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion11
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion10
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion9
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion8
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion6
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 168 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion5
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 133 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion4
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 98 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion3
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 63 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With LabelCancion2
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 25 / 658 * Desktop.Height
-  '   .X = 7 / 1022 * Desktop.Width
-  '   .Y = 30 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With TabStrip2
-  '   .Width = 707 / 1022 * Desktop.Width
-  '   .Height = 390 / 658 * Desktop.Height
-  '   .X = 0 / 1022 * Desktop.Width
-  '   .Y = 28 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With ListBoxComerciales
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 335 / 658 * Desktop.Height
-  '   .X = 0 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With ListBoxPautaje
-  '   .Width = 595 / 1022 * Desktop.Width
-  '   .Height = 335 / 658 * Desktop.Height
-  '   .X = 0 / 1022 * Desktop.Width
-  '   .Y = 25 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With ButtonPautaje
-  '   .Width = 180 / 1022 * Desktop.Width
-  '   .Height = 20 / 658 * Desktop.Height
-  '   .X = 0 / 1022 * Desktop.Width
-  '   .Y = 0 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With HSplit2
-  '   .Width = 329 / 1022 * Desktop.Width
-  '   .Height = 20 / 658 * Desktop.Height
-  '   .X = 1 / 1022 * Desktop.Width
-  '   .Y = 339 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With drwVol
-  '   .Width = 9 / 1022 * Desktop.Width
-  '   .Height = 602 / 658 * Desktop.Height
-  '   .X = 1011 / 1022 * Desktop.Width
-  '   .Y = 56 / 658 * Desktop.Height
-  ' End With
-  '
-  ' With TabStrip1
-  '   'TabStrip1.ColorPalette = Black
-  '   .Width = 1000 / 1022 * Desktop.Width
-  '   .Height = 75 / 658 * Desktop.Height
-  '   .X = 6 / 1022 * Desktop.Width
-  '   .Y = 560 / 658 * Desktop.Height
-  ' End With
 
   TimerActualizar.Trigger()
   TimerActualizar.Start()
@@ -7403,5 +6103,152 @@ Public Sub Form_Show()
   'se maximiza al mostrarse el formulario
 
   Me.Maximized = True
+  Label11.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX11.play"
+  label12.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX0.play"
+  Label13.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX1.play"
+  Label14.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX2.play"
+  Label15.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX3.play"
+  Label16.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX4.play"
+  Label17.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX5.play"
+  Label18.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX6.play"
+  Label19.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX7.play"
+
+  Label20.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX8.play"
+  label21.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX9.play"
+  Label22.tag = "~/.gradio/data/panel/botonera/fxxs/FX1/FX10.play"
+
+  Label23.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX11.play"
+  Label24.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX0.play"
+  Label25.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX1.play"
+  Label26.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX2.play"
+  Label27.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX3.play"
+  Label28.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX4.play"
+  Label29.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX5.play"
+
+  Label30.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX6.play"
+  Label31.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX7.play"
+  Label32.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX8.play"
+  Label33.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX9.play"
+  Label34.tag = "~/.gradio/data/panel/botonera/fxxs/FX2/FX10.play"
+
+  Label35.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX11.play"
+  Label36.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX0.play"
+  Label37.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX1.play"
+  Label38.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX2.play"
+  Label39.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX3.play"
+
+  Label40.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX4.play"
+  Label41.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX5.play"
+  Label42.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX6.play"
+  Label43.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX7.play"
+  Label44.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX8.play"
+  Label45.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX9.play"
+  Label46.tag = "~/.gradio/data/panel/botonera/fxxs/FX3/FX10.play"
+
+  Label47.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX11.play"
+  Label48.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX0.play"
+  Label49.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX1.play"
+
+  Label50.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX2.play"
+  Label51.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX3.play"
+  Label52.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX4.play"
+  Label53.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX5.play"
+  Label54.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX6.play"
+  Label55.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX7.play"
+  Label56.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX8.play"
+  Label57.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX9.play"
+  Label58.tag = "~/.gradio/data/panel/botonera/fxxs/FX4/FX10.play"
+  Label59.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX11.play"
+
+  Label60.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX0.play"
+  Label61.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX1.play"
+  Label62.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX2.play"
+  Label63.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX3.play"
+  Label64.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX4.play"
+  Label65.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX5.play"
+  Label66.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX6.play"
+  Label67.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX7.play"
+  Label68.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX8.play"
+  Label69.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX9.play"
+
+  Label70.tag = "~/.gradio/data/panel/botonera/fxxs/FX5/FX10.play"
+  Label71.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX11.play"
+  Label72.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX0.play"
+  Label73.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX1.play"
+  Label74.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX2.play"
+  Label75.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX3.play"
+  Label76.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX4.play"
+  Label77.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX5.play"
+  Label78.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX6.play"
+  Label79.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX7.play"
+
+  Label80.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX8.play"
+  Label81.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX9.play"
+  Label82.tag = "~/.gradio/data/panel/botonera/fxxs/FX6/FX10.play"
+  Label83.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX11.play"
+  Label84.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX0.play"
+  Label85.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX1.play"
+  Label86.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX2.play"
+  Label87.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX3.play"
+  Label88.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX4.play"
+  Label89.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX5.play"
+
+  Label90.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX6.play"
+  Label91.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX7.play"
+  Label92.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX8.play"
+  Label93.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX9.play"
+  Label94.tag = "~/.gradio/data/panel/botonera/fxxs/FX7/FX10.play"
+
+  Label95.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX11.play"
+  Label96.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX0.play"
+  Label97.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX1.play"
+  Label98.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX2.play"
+  Label99.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX3.play"
+
+  Label100.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX4.play"
+  Label101.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX5.play"
+  Label102.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX6.play"
+  Label103.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX7.play"
+  Label104.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX8.play"
+  Label105.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX9.play"
+  Label106.tag = "~/.gradio/data/panel/botonera/fxxs/FX8/FX10.play"
+  Label107.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX11.play"
+  Label108.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX0.play"
+  Label109.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX1.play"
+
+  Label110.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX2.play"
+  Label111.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX3.play"
+  Label112.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX4.play"
+  Label113.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX5.play"
+  Label114.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX6.play"
+  Label115.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX7.play"
+  Label116.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX8.play"
+  Label117.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX9.play"
+  Label118.tag = "~/.gradio/data/panel/botonera/fxxs/FX9/FX10.play"
+  Label119.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX11.play"
+
+  Label120.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX0.play"
+  Label121.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX1.play"
+  Label122.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX2.play"
+  Label123.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX3.play"
+  Label124.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX4.play"
+  Label125.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX5.play"
+  Label126.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX6.play"
+  Label127.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX7.play"
+  Label128.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX8.play"
+  Label129.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX9.play"
+
+  Label130.tag = "~/.gradio/data/panel/botonera/fxxs/FX10/FX10.play"
+  Label131.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX11.play"
+  Label132.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX0.play"
+  Label133.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX1.play"
+  Label134.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX2.play"
+  Label135.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX3.play"
+  Label136.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX4.play"
+  Label137.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX5.play"
+  Label138.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX6.play"
+  Label139.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX7.play"
+
+  Label140.tag = "~/.gradio/data/panel/botonera/fxxs/FX11/FX8.play"
 
 End
